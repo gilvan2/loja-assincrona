@@ -1,5 +1,6 @@
 package com.loja_api.model;
 
+import com.loja_api.dto.ShopItemDTO;
 import	lombok.Getter;
 import	lombok.Setter;
 
@@ -20,5 +21,14 @@ public class ShopItem {
     @ManyToOne
     @JoinColumn(name = "shop_id")
     private	Shop shop;
+
+    public static ShopItem convert(ShopItemDTO shopItemDTO) {
+        ShopItem shopItem = new ShopItem();
+        shopItem.setProductIdentifier(shopItemDTO.getProductIdentifier());
+        shopItem.setAmount(shopItemDTO.getAmount());
+        shopItem.setPrice(shopItemDTO.getPrice());
+        return shopItem;
+
+    }
 
 }
