@@ -15,17 +15,13 @@ public class Shop {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-
-    private String identifier;
-    private String status;
+    private	Long id;
+    private	String identifier;
+    private	String status;
     @Column(name = "date_shop")
-    private LocalDate dateShop;
-    private LocalDateTime date_shop;
-
+    private	LocalDate dateShop;
     @OneToMany(fetch = FetchType.EAGER,
             cascade = CascadeType.ALL,
             mappedBy = "shop")
-
-    private List<ShopItem> items;
+    private	List<ShopItem>	items;
 }
